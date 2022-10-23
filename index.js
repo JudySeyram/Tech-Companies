@@ -1,8 +1,10 @@
+const mongoose = require('mongoose');
+
+
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const routes = require('./routes/routes');
-const mongoString = process.env.DATABASE_URL;
+const mongoString = "mongodb+srv://Judy:Titus2crete@cluster0.l6mifjm.mongodb.net/test"
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 database.on('error', (error) => {
@@ -13,8 +15,8 @@ database.once('connected', () => {
 })
 const app = express();
 app.use(express.json());
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Server Started at ${port}`)
+
+app.listen(3000, () => {
+    console.log(`Server Started at `)
 })
 app.use('/api', routes)
