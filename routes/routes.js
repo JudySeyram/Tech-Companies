@@ -1,5 +1,5 @@
 const express = require("express");
-const { default: mongoose } = require("mongoose");
+
 const Model = require("../models/model");
 const router = express.Router();
 
@@ -37,19 +37,34 @@ router.get("/getOne/:id", (req, res) => {
 });
 
 //Update by ID Method
-router.patch("/update/:id", (req, res) => {
-  res.send("Update by ID API");
-});
+router.patch('/update/:id', async (req, res) => {
+  try {
+      const id = req.params.id;
+      const updatedData = req.body;
+      const options = { new: true };
+
+      const result = await Model.findByIdAndUpdate(
+          id, updatedData, options
+      )
+
+      res.send(result)
+  }
+  catch (error) {
+      res.status(400).json({ message: error.message })
+  }
+})
+;
 
 //Delete by ID Method
-router.delete("/delete/:id", (req, res) => {
-  Model.findByIdAndDelete(req.params.id)
-    .then(() => {
-      res.status(200).json("Successfully deleted company!");
-    })
-    .catch(() => {
-      res.status(400).json("Error deleting company");
-    });
-});
+router.delete('/delete/:id', async (req, res) => {
+  try {
+      const id = req.params.id;
+      const data = await Model.findByIdAndDelete(id)
+      res.send(`Document with ${data.name} has been deleted..`)
+  }
+  catch (error) {
+      res.status(400).json({ message: error.message })
+  }
+})
 
 module.exports = router;
