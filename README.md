@@ -30,7 +30,7 @@ The routes featured in this project:
 | /         | `GET`   |  Api home page                   |
 | /getOne/id   | `GET`   | Get a company by ID                 |
 | /post   | `POST`   | Add a company to the database               |
-| /update/id | `PUT`   | Update a company information by ID |
+| /update/id | `PATCH`   | Update a company information by ID |
 | /delete/id | `DELETE`   | Delete companyfrom database               |
 
 <hr>
