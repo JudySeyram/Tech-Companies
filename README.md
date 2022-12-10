@@ -12,9 +12,6 @@ This is an API that implements the CRUD endpoints. It creates, reads, updates an
 - Clone the project by running: `git clone `https://github.com/JudySeyram/Tech-Companies`
 - cd into the project and run `npm install`
 - create a `.env` file in the root folder and copy the content in the `.env.example`into it.
-- run `npm run migrate` to migrate to the database.
-- run `npm run migrate:undo` to undo migration.
-- run `npm run seed` to seed the database.
 - run `npm start` to start the project.
  
 These are the HTTP response codes used in this project:
@@ -31,25 +28,10 @@ The routes featured in this project:
 | API routes(url)       | Method   | Description                                         |
 | ---                   | ---      | ---                                                 |
 | /         | `GET`   |  Api home page                   |
-| /messages   | `GET`   | Get all messages                 |
-| /messages   | `POST`   | Create a message                 |
-| /messages/id | `GET`   | Get a message by id              |
-| /messages/id | `PUT`   | Update message|
-| /messages/id | `DELETE`   | Delete message                |
-| /students  | `GET`   | Get all students                 |
-| /students   | `POST`   | Create a student                 |
-| /students/id | `GET`   | Get a student by id              |
-| /students/id | `PUT`   | Update student             |
-| /students/id | `DELETE`   | Delete student                |
-| /teacher   | `GET`   | Get all teachers                 |
-| /teacher   | `POST`   | Create a teacher                 |
-| /teacher/id | `GET`   | Get a teacher by id              |
-| /teacher/id | `PUT`   | Update teacher              |
-| /teacher/id | `DELETE`   | Delete teacher                |
-| /assignment  | `GET`   | Get all assignment                 |
-| /assignment/id | `GET`   | Get a assignment with id              |
-| /assignment/id | `PUT`   | Update assignment              |
-| /assignment/id | `DELETE`   | Delete assignment               |
+| /getOne/id   | `GET`   | Get a company by ID                 |
+| /post   | `POST`   | Add a company to the database               |
+| /update/id | `PUT`   | Update a company information by ID |
+| /delete/id | `DELETE`   | Delete companyfrom database               |
 
 <hr>
 
